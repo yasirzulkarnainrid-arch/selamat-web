@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday 🎂</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffd6e7, #d9e7ff);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.93);
+            width: 100%;
+            max-width: 600px;
+            padding: 40px 30px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .cake {
+            font-size: 80px;
+            animation: floating 2s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        h1 {
+            font-size: 42px;
+            margin: 20px 0 10px;
+            color: #e85d91;
+        }
+
+        h2 {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .button {
+            margin-top: 25px;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 30px;
+            background: #e85d91;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.08);
+            background: #d9477d;
+        }
+
+        .message {
+            display: none;
+            margin-top: 30px;
+            animation: muncul 1s ease;
+        }
+
+        @keyframes muncul {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .photo {
+            margin: 25px auto;
+            width: 220px;
+            height: 220px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .quote {
+            margin-top: 25px;
+            padding: 20px;
+            background: #fff0f6;
+            border-radius: 15px;
+            font-style: italic;
+        }
+
+        .heart {
+            position: fixed;
+            bottom: -20px;
+            font-size: 20px;
+            animation: naik 5s linear forwards;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        @keyframes naik {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-110vh);
+                opacity: 0;
+            }
+        }
+
+        .music-button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background: #555;
+            color: white;
+            cursor: pointer;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #888;
+        }
+
+        @media (max-width: 500px) {
+            .card {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .cake {
+                font-size: 65px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <audio id="musik" loop>
+        <source src="musik.mpeg" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="cake">
+                🎂
+            </div>
+
+            <h1>
+                Happy Birthday!
+            </h1>
+
+            <h2>
+                Untuk Kamu 💖
+            </h2>
+
+            <p>
+                Ada sedikit sesuatu yang ingin aku kasih buat kamu...
+            </p>
+
+            <button class="button" onclick="bukaSurprise()">
+                🎁 Buka Surprise
+            </button>
+
+            <div class="message" id="message">
+
+                <h2>
+                    🎉 Selamat Ulang Tahun! 🎉
+                </h2>
+
+                <div class="photo">
+                    <img src="foto.jpg" alt="Foto">
+                </div>
+
+                <p>
+                    Semoga di hari spesial ini kamu mendapatkan
+                    banyak kebahagiaan, kesehatan, dan hal-hal baik
+                    yang selama ini kamu harapkan.
+                </p>
+
+                <br>
+
+                <p>
+                    Semoga setiap langkah yang kamu jalani ke depannya
+                    selalu dipermudah dan dikelilingi oleh orang-orang
+                    yang tulus menyayangimu.
+                </p>
+
+                <div class="quote">
+                    "Semoga hari ini menjadi awal dari banyak
+                    cerita indah yang akan datang. 💕"
+                </div>
+
+                <button class="music-button" onclick="putarMusik()">
+                    🎵 Putar Musik
+                </button>
+
+                <button class="music-button" onclick="jedaMusik()">
+                    🔇 Pause
+                </button>
+
+                <br>
+
+                <button class="button" onclick="buatHati()">
+                    💖 Klik Lagi
+                </button>
+
+                <div class="footer">
+                    Made with ❤️
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function bukaSurprise() {
+
+            document.getElementById("message").style.display = "block";
+
+            document.querySelector(".container .button").style.display = "none";
+
+            document.getElementById("musik").play();
+
+            buatConfetti();
+
+            setInterval(buatHati, 700);
+        }
+
+        function putarMusik() {
+            document.getElementById("musik").play();
+        }
+
+        function jedaMusik() {
+            document.getElementById("musik").pause();
+        }
+
+        function buatHati() {
+
+            const heart = document.createElement("div");
+
+            heart.classList.add("heart");
+
+            heart.innerHTML = "💖";
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (15 + Math.random() * 25) + "px";
+
+            heart.style.animationDuration =
+                (3 + Math.random() * 3) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        function buatConfetti() {
+
+            const emoji = [
+                "🎉",
+                "✨",
+                "💖",
+                "🎂",
+                "🥳"
+            ];
+
+            for (let i = 0; i < 40; i++) {
+
+                const confetti =
+                    document.createElement("div");
+
+                confetti.innerHTML =
+                    emoji[
+                        Math.floor(
+                            Math.random() * emoji.length
+                        )
+                    ];
+
+                confetti.style.position = "fixed";
+
+                confetti.style.left =
+                    Math.random() * 100 + "vw";
+
+                confetti.style.top = "-30px";
+
+                confetti.style.fontSize =
+                    (15 + Math.random() * 20) + "px";
+
+                confetti.style.zIndex = "999";
+
+                confetti.animate(
+                    [
+                        {
+                            transform:
+                                "translateY(0) rotate(0deg)",
+                            opacity: 1
+                        },
+                        {
+                            transform:
+                                "translateY(110vh) rotate(360deg)",
+                            opacity: 0
+                        }
+                    ],
+                    {
+                        duration:
+                            2000 + Math.random() * 2000,
+                        easing: "linear"
+                    }
+                );
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 4500);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
